@@ -13,3 +13,7 @@ app.include_router(scan_router)
 @app.get("/", include_in_schema=False)
 async def root():
     return RedirectResponse(url="/docs")
+
+@app.get("/health_check")
+async def health_check():
+    return {"status":"ok"}
